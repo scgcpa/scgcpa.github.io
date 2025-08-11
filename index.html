@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thomas Lastname — CPA • Power BI Automation</title>
+  <meta name="description" content="CPA specializing in automating accounting & risk reporting with Power BI, Power Query (M), SQL, and Python. I replace manual Excel/PowerPoint packs with self‑service dashboards (75–90% faster)."/>
+  <meta name="theme-color" content="#0f172a" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Thomas — Power BI Automation (CPA)" />
+  <meta property="og:description" content="I replace manual Excel/PowerPoint reporting with self‑service Power BI systems (75–90% faster)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR-DOMAIN-HERE/" />
+
+  <style>
+    :root{
+      --bg:#0b1020; /* deep slate */
+      --bg-soft:#111936;
+      --card:#0e1630;
+      --text:#e8edf7;
+      --muted:#9fb2d1;
+      --brand:#6dd3ff; /* accent */
+      --brand-2:#a0e9a5; /* secondary accent */
+      --ring: rgba(109,211,255,.45);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:24px;
+    }
+    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 20% -10%, #14224b 0%, transparent 60%),
+                  radial-gradient(1000px 600px at 90% 10%, #0c1a36 0%, transparent 50%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .container{max-width:1120px; margin:0 auto; padding:0 20px}
+
+    /* Header */
+    .skip{position:absolute; left:-9999px}
+    .skip:focus{left:16px; top:16px; background:var(--card); color:var(--text); padding:10px 14px; border-radius:12px}
+
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(10px); background:linear-gradient(0deg,rgba(11,16,32,.65),rgba(11,16,32,.65)); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.5px}
+    .logo{width:34px; height:34px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),#7aa6ff)}
+    .logo svg{filter:drop-shadow(0 4px 10px rgba(109,211,255,.35))}
+    nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0}
+    nav a{padding:8px 10px; border-radius:12px}
+    nav a:hover{background:rgba(255,255,255,.06); text-decoration:none}
+
+    /* Buttons */
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:14px; background:linear-gradient(180deg,#79d9ff,#3aa5e8); color:#06121a; font-weight:700; border:0; cursor:pointer; box-shadow:0 8px 20px rgba(58,165,232,.35)}
+    .btn.secondary{background:linear-gradient(180deg,#b1f0b6,#6fcf97); box-shadow:0 8px 20px rgba(111,207,151,.28)}
+    .btn.ghost{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.14)}
+    .btn:hover{transform:translateY(-1px)}
+
+    /* Hero */
+    .hero{padding:72px 0 32px}
+    .hero h1{font-size:clamp(30px,5vw,48px); line-height:1.1; margin:0 0 12px}
+    .sub{font-size:clamp(16px,2.2vw,20px); color:var(--muted); max-width:760px}
+    .cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:18px}
+    .tagrow{display:flex; flex-wrap:wrap; gap:8px; margin:16px 0 0}
+    .tag{display:inline-flex; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); color:#d7e6ff; font-size:13px; border:1px solid rgba(255,255,255,.08)}
+
+    /* Sections */
+    section{padding:56px 0; border-top:1px solid rgba(255,255,255,.06)}
+    h2{font-size:28px; margin:0 0 18px}
+    .grid{display:grid; gap:18px}
+    @media(min-width:820px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
+
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .card h3{margin:6px 0 8px; font-size:20px}
+    .metric{display:inline-block; font-weight:800; letter-spacing:.3px; padding:4px 10px; border-radius:999px; background:rgba(109,211,255,.12); color:#b9ecff; border:1px solid var(--ring)}
+
+    .case h3{margin-top:0}
+    .split{display:grid; gap:16px}
+    @media(min-width:820px){ .split{grid-template-columns:1.2fr .8fr} }
+
+    .pill-list{display:flex; flex-wrap:wrap; gap:8px}
+    .pill{padding:6px 10px; border:1px solid rgba(255,255,255,.14); border-radius:999px; font-size:13px; color:#dcedff; background:rgba(255,255,255,.04)}
+
+    .note{color:var(--muted); font-size:14px}
+
+    /* Footer */
+    footer{padding:38px 0; color:var(--muted); border-top:1px solid rgba(255,255,255,.06)}
+
+    /* Small utilities */
+    .sr{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+    .center{display:flex; align-items:center; justify-content:center}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- spark icon -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#02101a" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2l2.4 5.2L20 9.2l-5 3.3L16 18l-4-2.7L8 18l1-5.5-5-3.3 5.6-2L12 2z"/>
+          </svg>
+        </div>
+        <span>Thomas Lastname • CPA</span>
+      </div>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#wins">Wins</a></li>
+          <li><a href="#cases">Case Studies</a></li>
+          <li><a href="#demo">Demo</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="btn ghost" href="RESUME-LINK.pdf" target="_blank" rel="noopener">Resume</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <h1>I replace manual Excel/PowerPoint reporting with self‑service <span style="background:linear-gradient(90deg,#79d9ff,#a0e9a5); -webkit-background-clip:text; background-clip:text; color:transparent">Power BI</span> systems.</h1>
+        <p class="sub">CPA with 10 years across accounting, audit/tax, and banking analytics. I use Power BI, Power Query (M), DAX, SQL, and Python to automate accounting & risk reporting. Typical outcome: **75–90%** cycle‑time reduction with fewer manual errors.</p>
+        <div class="cta">
+          <a class="btn" href="AUTOMATION-WINS.pdf" target="_blank" rel="noopener">View 1‑page Automation Wins</a>
+          <a class="btn secondary" href="#demo">Watch 3‑min PBIX walkthrough</a>
+          <a class="btn ghost" href="#contact">Contact</a>
+        </div>
+        <div class="tagrow" aria-label="Key tools">
+          <span class="tag">Power BI</span><span class="tag">Power Query (M)</span><span class="tag">DAX</span><span class="tag">SQL</span><span class="tag">Python (Pandas/NumPy)</span><span class="tag">RCSA / Issue Mgmt</span><span class="tag">Regulatory Reporting</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WINS -->
+    <section id="wins">
+      <div class="container">
+        <h2>Automation Wins</h2>
+        <div class="grid cols-3">
+          <article class="card">
+            <span class="metric">~75% faster</span>
+            <h3>Monthly risk pack → Power BI</h3>
+            <p>Migrated legacy Excel/PowerPoint packs to a governed Power BI model (SQL + DAX). Enabled leadership and control owners to self‑serve; reduced reconciliation churn and manual copy‑paste.</p>
+            <div class="pill-list"><span class="pill">SQL</span><span class="pill">DAX</span><span class="pill">Row‑level security</span></div>
+          </article>
+          <article class="card">
+            <span class="metric">~90% fewer hours</span>
+            <h3>Weekly & monthly assessments</h3>
+            <p>Automated assessments across LOBs using Python + Power Query with parameterized templates and scheduled refresh; standardized calculations and audit‑ready outputs.</p>
+            <div class="pill-list"><span class="pill">Python</span><span class="pill">Power Query</span><span class="pill">Scheduled refresh</span></div>
+          </article>
+          <article class="card">
+            <span class="metric">Real‑time visibility</span>
+            <h3>RCSA / Issue Management</h3>
+            <p>Built executive dashboards to track issues, corrective actions, and controls health; eliminated ad‑hoc extracts and manual slide builds.</p>
+            <div class="pill-list"><span class="pill">Data modeling</span><span class="pill">Measure standardization</span><span class="pill">Governance</span></div>
+          </article>
+        </div>
+        <p class="note">All examples are anonymized and use synthetic data for demonstration only.</p>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section id="cases">
+      <div class="container">
+        <h2>Case Studies</h2>
+        <div class="grid cols-2">
+          <article class="card case">
+            <h3>01 — Executive Risk Dashboard</h3>
+            <p><strong>Before:</strong> Monthly 80‑slide deck with manual Excel pivots and screenshots.
+            <br><strong>After:</strong> Central star‑schema model + DAX measures; PBIX with leadership views & RLS.
+            <br><strong>Impact:</strong> Cycle time cut ~75%; error rate dropped; 120+ users self‑serve.</p>
+            <div class="pill-list"><span class="pill">SQL</span><span class="pill">Power Query</span><span class="pill">DAX</span><span class="pill">Row‑level security</span></div>
+          </article>
+          <article class="card case">
+            <h3>02 — Assessments Automation</h3>
+            <p><strong>Before:</strong> Weekly CSV merges and spreadsheet macros across multiple LOBs.
+            <br><strong>After:</strong> Parameterized Power Query pipelines; Python for pre‑processing; scheduled refresh.
+            <br><strong>Impact:</strong> ~90% manual hours eliminated; standardized outputs for audit & compliance.</p>
+            <div class="pill-list"><span class="pill">Power Query</span><span class="pill">Python</span><span class="pill">Data validation</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO -->
+    <section id="demo">
+      <div class="container split">
+        <div>
+          <h2>3‑minute PBIX Walkthrough</h2>
+          <p>Quick tour: data model (star schema), three core measures, scheduled refresh. Video uses synthetic data.</p>
+          <div class="card" style="padding:0; overflow:hidden">
+            <div class="center" style="aspect-ratio:16/9; background:linear-gradient(180deg,#132447,#0b142b)">
+              <!-- Replace VIDEO_ID with your unlisted YouTube/Loom embed id -->
+              <iframe title="PBIX demo" width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+          <details class="card" style="margin-top:14px"><summary><strong>What’s inside the demo</strong></summary>
+            <ul>
+              <li>Star schema: Issues, Actions, Controls; shared Calendar; Dimensions (LOB, Owner, Severity)</li>
+              <li>Power Query shaping: type coercion, surrogate keys, parameterized sources</li>
+              <li>DAX: <code>Open Issues</code>, <code>Aging Bands</code>, <code>On‑time %</code></li>
+              <li>Refresh: Service schedule + email subscriptions</li>
+            </ul>
+          </details>
+        </div>
+        <aside class="card">
+          <h3>Downloadables</h3>
+          <p><a href="AUTOMATION-WINS.pdf" target="_blank" rel="noopener">1‑page Automation Wins (PDF)</a></p>
+          <p><a href="demo-screenshots.zip">Redacted dashboard screenshots (ZIP)</a></p>
+          <p class="note">No proprietary data is shared; visuals use synthetic/redacted samples.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <h2>Skills & Tools</h2>
+        <div class="card">
+          <div class="pill-list">
+            <span class="pill">Power BI</span>
+            <span class="pill">Power Query (M)</span>
+            <span class="pill">DAX</span>
+            <span class="pill">SQL</span>
+            <span class="pill">Python (Pandas/NumPy)</span>
+            <span class="pill">Data Modeling</span>
+            <span class="pill">ETL</span>
+            <span class="pill">RCSA</span>
+            <span class="pill">Issue Management</span>
+            <span class="pill">Internal Controls</span>
+            <span class="pill">Regulatory Reporting</span>
+            <span class="pill">VBA</span>
+            <span class="pill">Advanced Excel</span>
+            <span class="pill">SSMS</span>
+            <span class="pill">SSIS (basic)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Reach out</h3>
+            <p>Email works best. I’m open to fully remote roles where Power BI/Power Query & SQL are core.</p>
+            <p>
+              <button class="btn" id="copyEmail" type="button" aria-live="polite">Copy Email</button>
+              <a class="btn ghost" href="mailto:you@domain.com">you@domain.com</a>
+            </p>
+            <p class="note">You can also message me on LinkedIn.</p>
+            <p>
+              <a class="btn secondary" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="btn ghost" href="https://github.com/YOUR-GITHUB" target="_blank" rel="noopener">GitHub</a>
+            </p>
+          </div>
+          <div class="card">
+            <h3>Privacy & Anonymization</h3>
+            <p>All examples on this site are anonymized with synthetic data. Dashboards and models are shown to illustrate approach, not disclose confidential information.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> Thomas Lastname • Built for recruiters & hiring teams. <span class="note">(This site contains no tracking.)</span></small>
+    </div>
+  </footer>
+
+  <!-- Schema.org for basic discoverability -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Thomas Lastname",
+    "jobTitle": "Accounting Data Analyst (CPA)",
+    "url": "https://YOUR-DOMAIN-HERE/",
+    "sameAs": [
+      "https://www.linkedin.com/in/YOUR-LINKEDIN",
+      "https://github.com/YOUR-GITHUB"
+    ],
+    "knowsAbout": ["Power BI","Power Query","DAX","SQL","Python","RCSA","Issue Management","Regulatory Reporting","Internal Controls"]
+  }
+  </script>
+
+  <script>
+    // Replace with your real email (kept separate from mailto link to avoid spam crawlers)
+    const EMAIL = 'you@domain.com'; // TODO: change
+    document.getElementById('copyEmail').addEventListener('click', async (e)=>{
+      try{ await navigator.clipboard.writeText(EMAIL); e.target.textContent = 'Copied!'; setTimeout(()=> e.target.textContent='Copy Email', 1800);}catch(err){ e.target.textContent='Press Ctrl+C'; }
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
