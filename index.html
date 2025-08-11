@@ -111,10 +111,10 @@
         <ul>
           <li><a href="#wins">Wins</a></li>
           <li><a href="#cases">Case Studies</a></li>
-          <li><a href="#demo">Demo</a></li>
+          
           <li><a href="#skills">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a class="btn ghost" href="RESUME-LINK.pdf" target="_blank" rel="noopener">Resume</a></li>
+          
         </ul>
       </nav>
     </div>
@@ -126,11 +126,9 @@
       <div class="container">
         <h1>I replace manual Excel/PowerPoint reporting with self‑service <span style="background:linear-gradient(90deg,#79d9ff,#a0e9a5); -webkit-background-clip:text; background-clip:text; color:transparent">Power BI</span> systems.</h1>
         <p class="sub">CPA with 10 years across accounting, audit/tax, and banking analytics. I use Power BI, Power Query (M), DAX, SQL, and Python to automate accounting & risk reporting. Typical outcome: **75–90%** cycle‑time reduction with fewer manual errors.</p>
-        <div class="cta">
-          <a class="btn" href="AUTOMATION-WINS.pdf" target="_blank" rel="noopener">View 1‑page Automation Wins</a>
-          <a class="btn secondary" href="#demo">Watch 3‑min PBIX walkthrough</a>
-          <a class="btn ghost" href="#contact">Contact</a>
-        </div>
+        $1
+          <a class="btn" href="#contact">Contact</a>
+        $2
         <div class="tagrow" aria-label="Key tools">
           <span class="tag">Power BI</span><span class="tag">Power Query (M)</span><span class="tag">DAX</span><span class="tag">SQL</span><span class="tag">Python (Pandas/NumPy)</span><span class="tag">RCSA / Issue Mgmt</span><span class="tag">Regulatory Reporting</span>
         </div>
@@ -189,34 +187,7 @@
     </section>
 
     <!-- DEMO -->
-    <section id="demo">
-      <div class="container split">
-        <div>
-          <h2>3‑minute PBIX Walkthrough</h2>
-          <p>Quick tour: data model (star schema), three core measures, scheduled refresh. Video uses synthetic data.</p>
-          <div class="card" style="padding:0; overflow:hidden">
-            <div class="center" style="aspect-ratio:16/9; background:linear-gradient(180deg,#132447,#0b142b)">
-              <!-- Replace VIDEO_ID with your unlisted YouTube/Loom embed id -->
-              <iframe title="PBIX demo" width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-          </div>
-          <details class="card" style="margin-top:14px"><summary><strong>What’s inside the demo</strong></summary>
-            <ul>
-              <li>Star schema: Issues, Actions, Controls; shared Calendar; Dimensions (LOB, Owner, Severity)</li>
-              <li>Power Query shaping: type coercion, surrogate keys, parameterized sources</li>
-              <li>DAX: <code>Open Issues</code>, <code>Aging Bands</code>, <code>On‑time %</code></li>
-              <li>Refresh: Service schedule + email subscriptions</li>
-            </ul>
-          </details>
-        </div>
-        <aside class="card">
-          <h3>Downloadables</h3>
-          <p><a href="AUTOMATION-WINS.pdf" target="_blank" rel="noopener">1‑page Automation Wins (PDF)</a></p>
-          <p><a href="demo-screenshots.zip">Redacted dashboard screenshots (ZIP)</a></p>
-          <p class="note">No proprietary data is shared; visuals use synthetic/redacted samples.</p>
-        </aside>
-      </div>
-    </section>
+    
 
     <!-- SKILLS -->
     <section id="skills">
@@ -248,24 +219,9 @@
     <section id="contact">
       <div class="container">
         <h2>Contact</h2>
-        <div class="grid cols-2">
-          <div class="card">
-            <h3>Reach out</h3>
-            <p>Email works best. I’m open to fully remote roles where Power BI/Power Query & SQL are core.</p>
-            <p>
-              <button class="btn" id="copyEmail" type="button" aria-live="polite">Copy Email</button>
-              <a class="btn ghost" href="mailto:you@domain.com">you@domain.com</a>
-            </p>
-            <p class="note">You can also message me on LinkedIn.</p>
-            <p>
-              <a class="btn secondary" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
-              <a class="btn ghost" href="https://github.com/YOUR-GITHUB" target="_blank" rel="noopener">GitHub</a>
-            </p>
-          </div>
-          <div class="card">
-            <h3>Privacy & Anonymization</h3>
-            <p>All examples on this site are anonymized with synthetic data. Dashboards and models are shown to illustrate approach, not disclose confidential information.</p>
-          </div>
+        <div class="card">
+          <h3>Reach out</h3>
+          <p>Email works best. I’m open to fully remote roles where Power BI/Power Query &amp; SQL are core.</p>
         </div>
       </div>
     </section>
@@ -294,11 +250,6 @@
   </script>
 
   <script>
-    // Replace with your real email (kept separate from mailto link to avoid spam crawlers)
-    const EMAIL = 'you@domain.com'; // TODO: change
-    document.getElementById('copyEmail').addEventListener('click', async (e)=>{
-      try{ await navigator.clipboard.writeText(EMAIL); e.target.textContent = 'Copied!'; setTimeout(()=> e.target.textContent='Copy Email', 1800);}catch(err){ e.target.textContent='Press Ctrl+C'; }
-    });
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
